@@ -1,0 +1,33 @@
+﻿@model MVCProje.Models.Entity.TBL_URUNLER
+@{
+    ViewBag.Title = "UrunGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("Guncelle", "Urunler", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.LabelFor(m => m.URUNID)
+    @Html.TextBoxFor(y => y.URUNID, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.URUNAD)
+    @Html.TextBoxFor(y => y.URUNAD, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.MARKA)
+    @Html.TextBoxFor(y => y.MARKA, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.URUNKATEGORI)
+    @Html.DropDownListFor(m => m.TBL_KATEGORILER.KATEGORIID, (List<SelectListItem>)ViewBag.dgr, new {@class="form-control"})
+    <br />
+    @Html.LabelFor(m => m.FIYAT)
+    @Html.TextBoxFor(y => y.FIYAT, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.STOK)
+    @Html.TextBoxFor(y => y.STOK, new { @class = "form-control" })
+    <br />
+</div>
+    <div>
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+}
+
